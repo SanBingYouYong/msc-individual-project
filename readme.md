@@ -21,4 +21,4 @@ For shape program synthesis in Chapter 4, the code will be released after confer
 
 ## Supplementary
 
-Packed archives of evaluation and experiment results are available [here](https://imperiallondon-my.sharepoint.com/:f:/g/personal/sz2224_ic_ac_uk/Ej2Kb61sLvZGif-XJDeGbeUBmka3mee2kfQeC2iiBmcHDA?e=vEwDMP), hosted on Imperial College London OneDrive. Please refer to the [data_readme.md](./data_readme.md) for file references. 
+Packed archives of evaluation and experiment results are available on [Imperial College London OneDrive](https://imperiallondon-my.sharepoint.com/:f:/g/personal/sz2224_ic_ac_uk/Ej2Kb61sLvZGif-XJDeGbeUBmka3mee2kfQeC2iiBmcHDA?e=vEwDMP), an Imperial account is required for access as some may contain gated resource. Please refer to the [data_readme.md](./data_readme.md) for file references. 

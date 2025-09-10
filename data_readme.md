@@ -1,4 +1,4 @@
-For controlled experiments results and their evaluations, see: 
+For controlled experiment results and their evaluations, see: 
 
 - `exp-357.zip` and `csp_direct_357.zip` for experiments and evaluations on scenes with stratified 3, 5 and 7 objects, respectively;
 
