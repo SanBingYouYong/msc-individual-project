@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+python-multipart
+torch>=2.7.1
+transformers
+Pillow
+sentencepiece

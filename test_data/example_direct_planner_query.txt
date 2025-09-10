@@ -1,0 +1,55 @@
+You are tasked with creating a detailed 3D scene layout in JSON format based on the provided description and asset list. Your goal is to directly specify the position, rotation, and scale of each asset in the scene.
+
+Please think step-by-step:
+1. Review the scene description and the list of assets.
+2. Determine the spatial layout and arrangement of objects in the scene.
+3. For each asset, specify its position (x, y, z coordinates), rotation (x, y, z angles in degrees), and scale (x, y, z scaling factors).
+4. Consider realistic spatial relationships like objects on surfaces, proper spacing, natural orientations, and logical groupings.
+5. Use a coordinate system where Y is up, and position objects appropriately relative to a ground plane at Y=0.
+
+Output the layout in the following JSON format, ensuring to include all assets from the provided list using their exact names as keys:
+
+```json
+{
+    "asset_name": {
+        "location": [x, y, z],  # Position in 3D space (floats)
+        "min": [min_x, min_y, min_z],  # Minimum corner of the AABB bounding box (floats)
+        "max": [max_x, max_y, max_z],  # Maximum corner of the AABB bounding box (floats)
+        "orientation": [pitch, yaw, roll],  # Euler angles in degrees (floats)
+    },
+    ...
+}
+```
+
+Guidelines:
+- Position coordinates should be realistic (e.g., furniture on ground, decorations at appropriate heights)
+- Rotation angles are in degrees (0-360)
+- Scale factors are typically around 1.0 unless specific sizing is needed
+- Consider the natural flow and accessibility of the space
+- Ensure objects don't overlap inappropriately
+- Group related objects logically
+
+You may start with any reasoning but in the end ensure to provide the JSON data wrapped in a single markdown code block like above.
+
+
+User Request: A cozy living room with a fireplace, a sofa, and a coffee table.
+
+Asset List:
+- Fireplace:
+  - Description: A built-in fireplace with a mantelpiece. Materials could be brick or stone. Includes a firebox with simulated embers or a gentle flame. The mantelpiece should be wide enough to hold a few decorative items. The fireplace should emit a warm, ambient glow.
+  - Location: Against the main wall of the living room, serving as a focal point.
+- Sofa:
+  - Description: A comfortable, upholstered 2-3 seater sofa. Features plush cushioning and a soft, inviting fabric texture (e.g., chenille, velvet, or a textured weave) in a warm, neutral color. Designed for comfort and relaxation.
+  - Location: Positioned in front of the fireplace, creating a primary seating area.
+- Coffee Table:
+  - Description: A rectangular or oval coffee table made of wood with a warm finish (e.g., oak, walnut). Its surface should be smooth and suitable for placing decorative items or drinks. The design should complement the cozy aesthetic.
+  - Location: Centered in front of the sofa, within easy reach of the seating area.
+- Area Rug:
+  - Description: A soft-textured area rug that anchors the seating arrangement. It should have a warm color palette and potentially a subtle pattern or a plush, solid texture. Provides warmth and defines the cozy zone.
+  - Location: Placed under the coffee table, extending to partially cover the area in front of the sofa.
+- Sofa Cushions:
+  - Description: A set of 2-3 decorative throw cushions for the sofa. They should have varying textures and complementary colors to the sofa fabric, adding visual interest and enhancing the cozy feel.
+  - Location: Arranged on the sofa cushions.
+- Throw Blanket:
+  - Description: A soft, knitted or plush throw blanket. Designed to be draped over the sofa, adding an extra layer of warmth and texture to the seating area.
+  - Location: Draped casually over one of the sofa arms or the back.

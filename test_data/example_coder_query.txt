@@ -1,0 +1,73 @@
+You are an expert in writing Optuna code and Python scripts to find optimal 3D scene layouts.
+
+Given a relational bipartite graph 'G(s) = (A, R, E)' where:
+- 'A' represents the set of assets.
+- 'R' represents the set of relations as nodes.
+- 'E' represents the edges connecting a relation node to a subset of assets 'E(r)' in the scene that satisfies this relation.
+
+Please first write Python methods for each relation type that takes in assets parameters and returns a score based on how well they satisfy the relation. The scoring function should return a higher score when the relation is satisfied and a lower score when it is not. For each input asset, the method will receive a layout matrix defined by the following dataclass:
+
+```python
+class Layout:
+    location: Tuple[float, float, float]  # location of the asset in 3D space
+    min: Tuple[float, float, float]  # minimum corner of the AABB bounding box
+    max: Tuple[float, float, float]  # maximum corner of the AABB bounding box
+    orientation: Tuple[float, float, float]  # Euler angles (pitch, yaw, roll) in radians
+```
+
+Then, use these methods as scoring functions in Optuna to express constraints for the scene layout optimization problem by adding them to the solver. After running the solver, save the optimal layout found in a "layout.json" file in the same directory as the script (get script location explicitly with `os.path.dirname(os.path.realpath(__file__))`), mapping exact asset names from given asset list to their corresponding layout matrices. The up-axis is the Z-axis, front is X-axis and Y-axis points to right in a [x, y, z] coordinate system.
+
+Return your whole Python script in a single markdown code block and make sure it can be run directly:
+```python
+# your code
+```
+
+
+User Request: A cozy living room with a fireplace, a sofa, and a coffee table.
+
+
+Graph:
+Asset List:
+- Fireplace:
+  - Description: A built-in fireplace with a mantelpiece. Materials could be brick or stone. Includes a firebox with simulated embers or a gentle flame. The mantelpiece should be wide enough to hold a few decorative items. The fireplace should emit a warm, ambient glow.
+  - Location: Against the main wall of the living room, serving as a focal point.
+- Sofa:
+  - Description: A comfortable, upholstered 2-3 seater sofa. Features plush cushioning and a soft, inviting fabric texture (e.g., chenille, velvet, or a textured weave) in a warm, neutral color. Designed for comfort and relaxation.
+  - Location: Positioned in front of the fireplace, creating a primary seating area.
+- Coffee Table:
+  - Description: A rectangular or oval coffee table made of wood with a warm finish (e.g., oak, walnut). Its surface should be smooth and suitable for placing decorative items or drinks. The design should complement the cozy aesthetic.
+  - Location: Centered in front of the sofa, within easy reach of the seating area.
+- Area Rug:
+  - Description: A soft-textured area rug that anchors the seating arrangement. It should have a warm color palette and potentially a subtle pattern or a plush, solid texture. Provides warmth and defines the cozy zone.
+  - Location: Placed under the coffee table, extending to partially cover the area in front of the sofa.
+- Sofa Cushions:
+  - Description: A set of 2-3 decorative throw cushions for the sofa. They should have varying textures and complementary colors to the sofa fabric, adding visual interest and enhancing the cozy feel.
+  - Location: Arranged on the sofa cushions.
+- Throw Blanket:
+  - Description: A soft, knitted or plush throw blanket. Designed to be draped over the sofa, adding an extra layer of warmth and texture to the seating area.
+  - Location: Draped casually over one of the sofa arms or the back.
+
+**List of Relation Nodes 'R' with their types and descriptions:**
+
+- **IN_FRONT_OF:** Indicates that one asset is positioned directly in front of another.
+- **AGAINST:** Indicates that an asset is positioned directly against a surface (e.g., a wall).
+- **UNDER:** Indicates that one asset is positioned directly under another.
+- **PART_OF:** Indicates that an asset is a component or part of another asset.
+- **NEAR:** Indicates that assets are close to each other, but not necessarily directly aligned.
+- **COMPLEMENTS:** Indicates that one asset enhances the aesthetic or function of another.
+- **ON:** Indicates that one asset is placed on top of another.
+
+**Edges 'E' that link assets to their corresponding relation nodes:**
+
+- (IN_FRONT_OF, [Sofa]): The sofa is positioned in front of the fireplace, creating the primary seating arrangement.
+- (AGAINST, [Fireplace]): The fireplace is positioned against the main wall, serving as a focal point.
+- (IN_FRONT_OF, [Coffee Table]): The coffee table is positioned in front of the sofa, within easy reach.
+- (UNDER, [Area Rug]): The area rug is positioned under the coffee table, anchoring the seating arrangement.
+- (NEAR, [Area Rug, Sofa]): The area rug extends to partially cover the area in front of the sofa, creating a cohesive zone.
+- (PART_OF, [Sofa Cushions, Sofa]): The sofa cushions are part of the sofa, enhancing its comfort and appearance.
+- (ON, [Sofa Cushions, Sofa]): The sofa cushions are placed on the sofa.
+- (PART_OF, [Throw Blanket, Sofa]): The throw blanket is part of the sofa arrangement, adding to the cozy aesthetic.
+- (ON, [Throw Blanket, Sofa]): The throw blanket is draped on the sofa.
+- (COMPLEMENTS, [Area Rug, Sofa]): The Area Rug complements the sofa, enhancing the cozy feel.
+- (COMPLEMENTS, [Sofa Cushions, Sofa]): The Sofa Cushions complement the sofa, enhancing its comfort and visual appeal.
+- (COMPLEMENTS, [Throw Blanket, Sofa]): The Throw Blanket complements the sofa, enhancing the cozy feel.

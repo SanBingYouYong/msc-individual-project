@@ -1,0 +1,7 @@
+openai
+PyYAML
+python-dotenv
+pillow
+streamlit
+optuna
+bpy==4.2

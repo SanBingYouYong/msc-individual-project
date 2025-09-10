@@ -1,0 +1,24 @@
+**List of Relation Nodes 'R' with their types and descriptions:**
+
+- **IN_FRONT_OF:** Indicates that one asset is positioned directly in front of another.
+- **AGAINST:** Indicates that an asset is positioned directly against a surface (e.g., a wall).
+- **UNDER:** Indicates that one asset is positioned directly under another.
+- **PART_OF:** Indicates that an asset is a component or part of another asset.
+- **NEAR:** Indicates that assets are close to each other, but not necessarily directly aligned.
+- **COMPLEMENTS:** Indicates that one asset enhances the aesthetic or function of another.
+- **ON:** Indicates that one asset is placed on top of another.
+
+**Edges 'E' that link assets to their corresponding relation nodes:**
+
+- (IN_FRONT_OF, [Sofa]): The sofa is positioned in front of the fireplace, creating the primary seating arrangement.
+- (AGAINST, [Fireplace]): The fireplace is positioned against the main wall, serving as a focal point.
+- (IN_FRONT_OF, [Coffee Table]): The coffee table is positioned in front of the sofa, within easy reach.
+- (UNDER, [Area Rug]): The area rug is positioned under the coffee table, anchoring the seating arrangement.
+- (NEAR, [Area Rug, Sofa]): The area rug extends to partially cover the area in front of the sofa, creating a cohesive zone.
+- (PART_OF, [Sofa Cushions, Sofa]): The sofa cushions are part of the sofa, enhancing its comfort and appearance.
+- (ON, [Sofa Cushions, Sofa]): The sofa cushions are placed on the sofa.
+- (PART_OF, [Throw Blanket, Sofa]): The throw blanket is part of the sofa arrangement, adding to the cozy aesthetic.
+- (ON, [Throw Blanket, Sofa]): The throw blanket is draped on the sofa.
+- (COMPLEMENTS, [Area Rug, Sofa]): The Area Rug complements the sofa, enhancing the cozy feel.
+- (COMPLEMENTS, [Sofa Cushions, Sofa]): The Sofa Cushions complement the sofa, enhancing its comfort and visual appeal.
+- (COMPLEMENTS, [Throw Blanket, Sofa]): The Throw Blanket complements the sofa, enhancing the cozy feel.

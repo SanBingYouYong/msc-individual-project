@@ -1,0 +1,91 @@
+# taken from my dissertaion
+openai:
+  url: https://api.openai.com/v1
+  models:
+    4omini:
+      model: gpt-4o-mini
+      temperature: 0.5
+      vision: true
+      thinking: false
+    gpt4.1:
+      model: gpt-4.1
+      temperature: 0
+      vision: true
+      thinking: false
+google:
+  url: https://generativelanguage.googleapis.com/v1beta/openai/
+  models:
+    gemini-2.5-flash-lite:
+      model: gemini-2.5-flash-lite-preview-06-17
+      temperature: 0.5
+      vision: true
+      thinking: true
+    gemini-2.5-flash:
+      model: gemini-2.5-flash
+      temperature: 0.5
+      vision: true
+      thinking: true
+    gemini-2.0-flash-lite:
+      model: gemini-2.0-flash-lite
+      temperature: 0.5
+      vision: true
+      thinking: true
+    gemma-3:
+      model: gemma-3-27b-it
+      temperature: 0.5
+      vision: true
+      thinking: true
+deepseek:
+  url: https://api.deepseek.com
+  models:
+    deepseek-chat:
+      model: deepseek-chat
+      temperature: 0.5
+      vision: false
+      thinking: false
+    deepseek-reasoner:
+      model: deepseek-reasoner
+      temperature: 0.5
+      vision: false
+      thinking: true
+aliyun:
+  url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  models:
+    qwen3:
+      model: qwen3-235b-a22b
+      temperature: 0.5
+      vision: false
+      thinking: true
+    qvq-max:  # does not support openai api
+      model: qvq-max
+      temperature: 0.5
+      vision: true
+      thinking: true
+    qwen2.5-vl-72b-instruct:
+      model: qwen2.5-vl-72b-instruct
+      temperature: 0.5
+      vision: true
+      thinking: false
+ollama:
+  url: http://localhost:11434/v1
+  models:
+    gemma3:
+      model: gemma3:27b
+      temperature: 0.5
+      vision: true
+      thinking: true
+    qwen3:
+      model: qwen3:latest
+      temperature: 0.5
+      vision: false
+      thinking: true
+    llava7:
+      model: llava:7b
+      temperature: 0.5
+      vision: true
+      thinking: false
+    qwen2.5vl:
+      model: qwen2.5vl:32b
+      temperature: 0.5
+      vision: true
+      thinking: false
